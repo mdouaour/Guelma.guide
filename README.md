@@ -6,10 +6,16 @@ AI-powered city guide for Guelma, Algeria — interactive map, AI concierge, and
 
 ## ⚡ One-click deploy (works from a phone)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmdouaour%2FGuelma.guide&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SERVICE_ROLE_KEY,NEXT_PUBLIC_MAPBOX_TOKEN,RESEND_API_KEY,ADMIN_SECRET,NEXT_PUBLIC_APP_URL&envDescription=See%20.env.example%20for%20where%20to%20find%20each%20value&envLink=https%3A%2F%2Fgithub.com%2Fmdouaour%2FGuelma.guide%2Fblob%2Fmain%2F.env.example&project-name=guelma-guide&repository-name=Guelma.guide)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmdouaour%2FGuelma.guide&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SERVICE_ROLE_KEY,RESEND_API_KEY,ADMIN_SECRET,NEXT_PUBLIC_APP_URL&envDescription=See%20.env.example%20for%20where%20to%20find%20each%20value&envLink=https%3A%2F%2Fgithub.com%2Fmdouaour%2FGuelma.guide%2Fblob%2Fmain%2F.env.example&project-name=guelma-guide&repository-name=Guelma.guide)
 
-Tap the button → sign in to Vercel → fill in the 7 env vars (see table below) → **Deploy**.  
+Tap the button → sign in to Vercel → fill in the 6 env vars (see table below) → **Deploy**.  
 No terminal required.
+
+---
+
+## 🗺️ Maps
+
+Maps are powered by **OpenStreetMap** via **Leaflet** — 100% free, no API key required.
 
 ---
 
@@ -20,7 +26,6 @@ No terminal required.
 | `NEXT_PUBLIC_SUPABASE_URL` | [Supabase](https://supabase.com) → your project → Settings → API → **Project URL** |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Same page → **anon / public** key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Same page → **service_role** key (keep secret) |
-| `NEXT_PUBLIC_MAPBOX_TOKEN` | [account.mapbox.com](https://account.mapbox.com) → Access Tokens → your `pk.` token |
 | `RESEND_API_KEY` | [resend.com/api-keys](https://resend.com/api-keys) → Create API Key |
 | `ADMIN_SECRET` | Any strong random string you invent |
 | `NEXT_PUBLIC_APP_URL` | Your Vercel URL, e.g. `https://guelma.guide` |
@@ -56,4 +61,4 @@ Open [http://localhost:3000](http://localhost:3000).
 
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Supabase Docs](https://supabase.com/docs)
-- [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/)
+- [Leaflet](https://leafletjs.com/) + [OpenStreetMap](https://www.openstreetmap.org/)

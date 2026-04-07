@@ -3,9 +3,9 @@
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
-import { MapPin, Layers, AlertCircle } from 'lucide-react'
+import { MapPin, Layers } from 'lucide-react'
 
-const MapboxMap = dynamic(() => import('@/components/MapboxMap'), { ssr: false })
+const LeafletMap = dynamic(() => import('@/components/LeafletMap'), { ssr: false })
 
 const landmarks = [
   { name: 'Roman Theatre', lat: 36.4621, lng: 7.4247, category: 'Historical' },
@@ -21,7 +21,6 @@ const landmarks = [
 
 export default function MapPage() {
   const [selected, setSelected] = useState<typeof landmarks[0] | null>(null)
-  const hasToken = !!process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 
   return (
     <div className="min-h-screen pt-16 flex flex-col" style={{ background: '#0A0A0F' }}>
@@ -64,23 +63,7 @@ export default function MapPage() {
 
         {/* Map area */}
         <div className="flex-1 relative">
-          {!hasToken ? (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="glass rounded-2xl p-8 text-center max-w-sm mx-4">
-                <AlertCircle className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
-                <h3 className="font-bold text-lg mb-2">Mapbox Token Required</h3>
-                <p className="text-white/50 text-sm mb-4">
-                  Add your Mapbox public token to enable the interactive map.
-                </p>
-                <code className="block glass px-3 py-2 rounded-lg text-xs text-yellow-400 text-left">
-                  NEXT_PUBLIC_MAPBOX_TOKEN=pk.eyJ...
-                </code>
-                <p className="text-white/30 text-xs mt-3">Add to .env.local</p>
-              </div>
-            </div>
-          ) : (
-            <MapboxMap landmarks={landmarks} onMarkerClick={setSelected} />
-          )}
+          <LeafletMap landmarks={landmarks} onMarkerClick={setSelected} />
 
           {/* Selected info overlay */}
           {selected && (
